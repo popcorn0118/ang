@@ -1,0 +1,86 @@
+@keyframes navAnime_1{
+    0%   {transform: rotate(45deg);}
+    25%  {transform: rotate(0deg);}
+    50%  {transform: rotate(30deg);}
+    100% {transform: rotate(0deg);}
+}
+@keyframes navAnime_2{
+    0%   {top: -6px;}
+    25%  {bottom: 0px; top: auto;}
+    50%  {top: -3px; bottom: auto;}
+    100% {bottom: 0px; top: auto;}
+}
+@keyframes navAnime_3{
+    0%   {font-size: 20px;}
+    25%  {font-size: 16px;}
+    50%  {font-size: 18px;}
+    100% {font-size: 16px;}
+}
+body,html {
+    background-color: $black;
+    background-image: url('/../../../static/img/bg.jpg') !important;
+    height: 100vh;
+    font-family: Arial, Helvetica, Microsoft JhengHei, sans-serif !important;
+}
+.nav {
+    background-color: #171717;
+    position: relative;
+    top: -20px;
+    box-shadow: 5px 7px 20px rgba(0, 0, 0, 0.2);
+    li {
+        display: inline-block;
+        text-align: center;
+        vertical-align: middle;
+        list-style: none;
+        line-height: 5em;
+        position: relative;
+        a {
+            display: block;
+            width: 100%;
+            height: 100%;
+            transition: 1s all;
+            i {
+                width: 25px;
+            }
+            &:hover {
+                color: $primary;
+                text-decoration: none;
+                .fa-music {
+                    animation-name: navAnime_2;
+                    animation-duration: 0.5s;
+                    position: relative;
+                }
+                .fa-microphone {
+                    animation-name: navAnime_1;
+                    animation-duration: 0.5s;
+                    position: relative;
+                }
+                .fa-eye {
+                    animation-name: navAnime_3;
+                    animation-duration: 0.5s;
+                    position: relative;
+                }
+            }
+            &.router-link-active {
+                color: $primary;
+            }
+        }
+    }
+}
+//類別按鈕
+.category {
+    margin: 50px auto;
+    .btn {
+        color: #878787;
+        border: 2px solid #333333;
+        border-right-width: 0px;
+        &:last-of-type {
+            border-right-width: 2px;
+        }
+        &:hover {
+            color: #ffffff;
+            border-color: $primary;
+            cursor: pointer;
+        }
+    }
+}

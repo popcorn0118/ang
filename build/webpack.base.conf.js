@@ -3,6 +3,7 @@ const path = require('path')
 const utils = require('./utils')
 const config = require('../config')
 const vueLoaderConfig = require('./vue-loader.conf')
+const webpack = require('webpack')
 
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
@@ -37,12 +38,22 @@ module.exports = {
       'vue$': 'vue/dist/vue.esm.js',
       '@': resolve('src'),
       '@CSS': resolve('src/assets/css'),
+      '@IMG': resolve('static/img'),
+      // '@JS': resolve('test/js'),
       '@C': resolve('src/components'),
-    }
+      'jquery': path.resolve(__dirname, '../node_modules/jquery/src/jquery'),
+      'bootstrap': path.resolve(__dirname, '../node_modules/bootstrap'),
+    },
+    plugins:[
+      new webpack.ProvidePlugin({
+        $: 'jquery',
+        jQuery: 'jquery'
+      })
+    ]
   },
   module: {
     rules: [
-      ...(config.dev.useEslint ? [createLintingRule()] : []),
+      //...(config.dev.useEslint ? [createLintingRule()] : []),
       {
         test: /\.vue$/,
         loader: 'vue-loader',
