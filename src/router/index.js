@@ -14,6 +14,11 @@ export default new Router({
       redirect: '/' // 導向
     },
     {
+      // 默認路由
+      path: '/', 
+      redirect: 'musicalWork'
+    },
+    {
       path: '/',
       name: 'Home',
       component: Home,

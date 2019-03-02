@@ -1,35 +1,34 @@
 <template>
 <div>
     <div class="container">
-        <div class="d-flex mb-4">
-            <!-- Search bar -->
-            <form class="form-inline my-3 my-lg-0">
-                <div class="input-group">
-                    <input class="form-control" type="text" v-model="searchText"
-                    placeholder="Search" aria-label="Search">
-                    <div class="input-group-append">
-                    <button class="btn btn-outline-secondary" type="button"
-                        @click="searchText = ''">
-                        <i class="fa fa-times"></i>
-                    </button>
+        <div class="row category">
+            <div class="btn-group btn-group-toggle col-lg-6" data-toggle="buttons" >
+                <label class="btn btn-outline-primary" @click.prevent="searchText = ''"
+                    :class="{ 'active': searchText === ''}">
+                    <input type="radio" name="options" id="option1" autocomplete="off">ALL
+                </label>
+                <label class="btn btn-outline-primary" @click.prevent="searchText = item"
+                    :class="{ 'active': item === searchText}"
+                    v-for="(item, index) in categories" :key="index">
+                    <input type="radio" name="options" id="option2" autocomplete="off" >{{ item }}
+                </label>
+            </div>
+            <div class="col-lg-6">
+                <!-- Search bar -->
+                <form class="form-inline float-right search">
+                    <div class="input-group">
+                        <input class="form-control" type="text" v-model="searchText"
+                        placeholder="Search" aria-label="Search">
+                        <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" type="button"
+                            @click="searchText = ''">
+                            <i class="fa fa-times"></i>
+                        </button>
+                        </div>
                     </div>
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
-
-
-        <div class="btn-group btn-group-toggle category" data-toggle="buttons" >
-            <label class="btn btn-outline-primary" @click.prevent="searchText = ''"
-                :class="{ 'active': searchText === ''}">
-                <input type="radio" name="options" id="option1" autocomplete="off">ALL
-            </label>
-            <label class="btn btn-outline-primary" @click.prevent="searchText = item"
-                :class="{ 'active': item === searchText}"
-                v-for="(item, index) in categories" :key="index">
-                <input type="radio" name="options" id="option2" autocomplete="off" >{{ item }}
-            </label>
-        </div>
-        
         <ul style="color: #fff">
             <li
                 v-for="(item, index) in filterMusicalData" 
@@ -42,7 +41,6 @@
     </div>
 </div>  
 </template>
-
 <script>
 import axios from 'axios'
 // https://spreadsheets.google.com/feeds/list/1MNnwEfRRl0lzKWCkTqm-_lG7d5G_TNs7eD3qo1hoAEM/od6/public/values?alt=json
@@ -63,11 +61,6 @@ export default {
         this.gettoo()
     },
     methods: {
-        gettoo() {
-            axios.get('https://spreadsheets.google.com/feeds/list/1MNnwEfRRl0lzKWCkTqm-_lG7d5G_TNs7eD3qo1hoAEM/2/public/values?alt=json').then((response) => {
-                console.log('gettoo', response)
-            })
-        },
         getMusical() {
             axios.get('https://spreadsheets.google.com/feeds/list/1MNnwEfRRl0lzKWCkTqm-_lG7d5G_TNs7eD3qo1hoAEM/1/public/values?alt=json').then((response) => {
                 this.musical = response.data.feed.entry
@@ -90,7 +83,9 @@ export default {
             const vm = this;
             if (vm.searchText) {
                     return vm.musical.filter((item) => {
-                    const data = item.gsx$分類.$t.toLowerCase().includes(vm.searchText.toLowerCase());
+                    const data = item.gsx$分類.$t.toLowerCase().includes(vm.searchText.toLowerCase()) ||
+                                 item.gsx$專輯名稱.$t.toLowerCase().includes(vm.searchText.toLowerCase()) ||
+                                 item.gsx$曲目.$t.toLowerCase().includes(vm.searchText.toLowerCase())
                     return data;
                 });
             }

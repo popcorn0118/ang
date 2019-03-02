@@ -83,4 +83,16 @@ body,html {
             cursor: pointer;
         }
     }
+    .search {
+        input {
+            color: #495057;
+            background-color: #171717;
+            border: 2px solid $primary;
+        }
+        button {
+            color: #ffffff;
+        border: 1px solid $primary;
+        background-color: $primary;
+        }
+    }
 }
