@@ -1,13 +1,12 @@
 <template>
 <div>
     <div class="container">
-        <Category />
+        Concert
     </div>
 </div>  
 </template>
 
 <script>
-import Category from '@C/Category'
 export default {
     name: 'Concert',
     data () {
@@ -15,7 +14,6 @@ export default {
         }
     },
     components: {
-        Category
     }
 }
 </script>

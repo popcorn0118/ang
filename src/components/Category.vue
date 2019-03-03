@@ -42,43 +42,27 @@
 </div>  
 </template>
 <script>
-import axios from 'axios'
-// https://spreadsheets.google.com/feeds/list/1MNnwEfRRl0lzKWCkTqm-_lG7d5G_TNs7eD3qo1hoAEM/od6/public/values?alt=json
-// 範例 https://spreadsheets.google.com/feeds/cells/文件KEY/第幾張工作表/public/values?alt=json
-// 'https://spreadsheets.google.com/feeds/cells/1MNnwEfRRl0lzKWCkTqm-_lG7d5G_TNs7eD3qo1hoAEM/1/public/values?alt=json'
-// 'https://spreadsheets.google.com/feeds/list/1MNnwEfRRl0lzKWCkTqm-_lG7d5G_TNs7eD3qo1hoAEM/1/public/values?alt=json'
+import { mapGetters, mapActions } from 'vuex';
+// import axios from 'axios';
 export default {
     name: 'Concert',
     data () {
         return {
-            musical: [],
-            searchText: '',
-            categories: []
+            searchText: ''
         }
     },
     created() {
-        this.getMusical()
-        this.gettoo()
+        this.getMusical();
     },
     methods: {
+        // ...mapActions('getMusical'),
         getMusical() {
-            axios.get('https://spreadsheets.google.com/feeds/list/1MNnwEfRRl0lzKWCkTqm-_lG7d5G_TNs7eD3qo1hoAEM/1/public/values?alt=json').then((response) => {
-                this.musical = response.data.feed.entry
-                this.getUnique();
-                console.log(this.musical)
-            })
-        },
-        getUnique() {
             const vm = this;
-            const categories = new Set();
-            vm.musical.forEach((item) => {
-                console.log(item.gsx$分類.$t)
-                categories.add(item.gsx$分類.$t);
-            });
-            vm.categories = Array.from(categories);
-        },
+            vm.$store.dispatch('getMusical', '')
+        }
     },
     computed: {
+        // ...mapGetters('musical', 'categories'),
         filterMusicalData() {
             const vm = this;
             if (vm.searchText) {
@@ -91,6 +75,12 @@ export default {
             }
             return this.musical;
         },
+        musical() {
+            return this.$store.state.musical
+        },
+        categories() {
+            return this.$store.state.categories
+        }
     }
 }
 </script>
