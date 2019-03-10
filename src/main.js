@@ -6,6 +6,7 @@ import axios from 'axios';
 import VueAxios from 'vue-axios';
 // import Loading from 'vue-loading-overlay';
 // import 'vue-loading-overlay/dist/vue-loading.min.css';
+import goTop from 'vue-gotop';
 import 'bootstrap';
 import App from './App';
 import router from './router';
@@ -15,6 +16,7 @@ Vue.config.productionTip = false;
 Vue.use(VueAxios, axios);
 Vue.use(Vuex);
 // Vue.component('Loading', Loading);
+Vue.use(goTop);
 
 /* eslint-disable no-new */
 new Vue({
