@@ -47,7 +47,7 @@
 
                 <ul class="row musicalWork align-items-start" >
                     <li
-                        class="containerWarp col-lg-4 col-md-6 col-xs-12"
+                        class="containerWarp col-xl-4 col-lg-6 col-md-6 col-xs-12"
                         v-for="(item, index) in filterMusicalData"
                         :class="{ 'is_active': index === isActive }"
                         :key="index"
