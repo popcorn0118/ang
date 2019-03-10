@@ -84,8 +84,9 @@ body,html {
         }
     }
     .search {
+        width: 100%;
         input {
-            color: #495057;
+            color: #ffffff;
             background-color: #171717;
             border: 2px solid $primary;
         }
@@ -93,6 +94,178 @@ body,html {
             color: #ffffff;
         border: 1px solid $primary;
         background-color: $primary;
+        }
+    }
+}
+
+footer {
+    background-color: #171717;
+    float: left;
+    width: 100%;
+    p {
+        margin: 20px auto;
+    }
+}
+
+.musicalWork {
+    padding: 0 15px;
+    min-height: 1000px;
+    align-content: start;
+    > li {
+        list-style: none;
+        height: 450px;
+        cursor: pointer;
+        @include xl {
+            height: 310px;
+        }
+        .front, .back {
+            border-radius: 0px;
+            background: linear-gradient(45deg,  #151515 0%,#3f3f3f 50%, #121212 100%);
+        }
+        .front {
+            @include backgroundImg;
+            height: 90%;
+            margin: 5% auto;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            transition: all 0.4s;
+            &::after {
+                @include pseudo;
+                background-color: rgba(0, 0, 0, 0.9);
+                width: 0;
+                height: 0;
+                transition: all 0.4s;
+            }
+            
+            & * {
+                opacity: 0;
+                transition: all 0.4s;
+                
+            }
+            h1, p, a {
+                position: relative;
+                z-index: 2;
+                color: #ffffff;
+                width: 100%;
+                
+            }
+            h1 {
+                margin: -10px auto 0;
+                font-size: 1.2em;
+            }
+            p {
+                font-size: 0.8em;
+                margin: 25px auto 5px;
+            }
+            a {
+                background-color: $primary;
+                width: auto;
+                padding: 8px 26px;
+                font-size: 0.7em;
+            }
+        }
+        .back {
+            width: 90%;
+            height: 90%;
+            top: 5%;
+            left: 5%;
+            position: absolute;
+            .inner {
+                height: 100%;
+                position: relative;
+            }
+            h1 {
+                transform: rotate(90deg);
+                -webkit-transform-origin-x: 0;
+                -webkit-transform-origin-y: 0;
+                position: absolute;
+                left: 70px;
+                top: 0;
+                opacity: 0.2;
+                font-size: 1.7em;
+            }
+            ol.track {
+                width: 70%;
+                text-align: left;
+                font-size: 0.8em;
+                line-height: 1.6em;
+                display: inline-block;
+                padding-left: 20px;
+                position: relative;
+                top: 50%;
+                transform: translateY(-50%);
+                li {
+                    float: left;
+                    width: 100%;
+                    list-style-position: inside;
+                }
+            }
+            ul.tarckIcon {
+                height: auto;
+                width: 30px;
+                display: block;
+                float: right;
+                margin: 0 auto;
+                position: absolute;
+                bottom: 25px;
+                right: 30px;
+                li {
+                    @include backgroundImg;
+                    width: 30px;
+                    height: 30px;
+                    margin: 0 5px;
+                    display: inline-block;
+                    background-image: url('/../../../static/img/tarckIcon.png');
+                    &:first-of-type {
+                        background-position-x: 0;
+                    }
+                    &:nth-of-type(2) {
+                        background-position-x: -30px;
+                    }
+                    &:nth-of-type(3) {
+                        background-position-x: calc(-30px * 2);
+                    }
+                    &:nth-of-type(4) {
+                        background-position-x: calc(-30px * 3);
+                    }
+                    &:last-of-type {
+                        background-position-x: calc(-30px * 4);
+                    }
+                    a {
+                        display: block;
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+            }
+        }
+        &:hover {
+            .front {
+                &::after {
+                    width: 90%;
+                    height: 90%;
+                }
+                a {
+                    text-decoration: none;
+                    transition: all 0.4s;
+                    &:hover {
+                        background-color: darken($primary, 15%);
+                    }
+                }
+                p {
+                    margin-top: 5px;
+                }
+                h1 {
+                    margin: 0px;
+                }
+                & * {
+                    opacity: 1;
+                }
+            }
         }
     }
 }

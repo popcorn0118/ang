@@ -1,12 +1,14 @@
 <template>
   <div class="">
-   <Nav />
-  <router-view />
+    <Nav />
+    <router-view />
+    <Footer />
   </div>
 </template>
 
 <script>
 import Nav from '@C/Nav'
+import Footer from '@C/Footer'
 export default {
   name: 'Home',
   data () {
@@ -21,7 +23,8 @@ export default {
     
   },
   components: {
-    Nav
+    Nav,
+    Footer
   }
 }
 </script>

@@ -1,0 +1,16 @@
+@mixin backgroundImg { 
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+@mixin pseudo {
+    content: '';
+    position: absolute;
+}
+
+@mixin xl {
+    @media (max-width: 1440px) {
+        @content;
+    }
+}
