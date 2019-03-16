@@ -283,6 +283,85 @@ footer {
     }
 }
 
+// 影視作品
+.dramaWork {
+    padding: 0px;
+    li {
+        list-style: none;
+    .dramaWork--img {
+        perspective: 600px;
+        > div {
+            transform-style: preserve-3d;
+            transition: 0.4s;
+            transform: translateZ(0px) rotateY(-25deg);
+            .dramaWork--img--left {
+                width: 50px;
+                height: 100%;
+                left: -23px;
+                position: absolute;
+                background-color: #262626;
+                -webkit-box-reflect: below 0px -webkit-linear-gradient(transparent 90%,rgba(0,0,0,.3));
+                box-reflect: below 0px linear-gradient(transparent 90%,rgba(0,0,0,.3));
+                transform: translateZ(-50px) rotateY(-54deg);
+                writing-mode: vertical-lr;
+                font-size: 1.6em;
+                padding: 15px 3px;
+            }
+            .dramaWork--img--front {
+                @include backgroundImg;
+                padding-top: calc(100% * 16 / 11);
+                -webkit-box-reflect: below 0px -webkit-linear-gradient(transparent 90%,rgba(0,0,0,.3));
+                box-reflect: below 0px linear-gradient(transparent 90%,rgba(0,0,0,.3));
+                transform: translateZ(0px) rotateY(25deg);
+                transition: 0.4s;
+            }
+            &:hover {
+                transform: translateZ(0px) rotateY(0deg);
+                .dramaWork--img--front {
+                    transform: translateZ(-100px) rotateY(25deg);
+                }
+            }
+        }
+    }
+        ul {
+            float: left;
+            width: 100%;
+            padding: 10px;
+            margin: 20px auto;
+            li {
+                list-style: none;
+                &:first-of-type {
+                    float: left;
+                    padding: 0 5px;
+                    background-color: $primary;
+                    border-radius: 5px;
+                }
+                &:nth-of-type(2) {
+                    float: right;
+                    color: #969696;
+                }
+                &:nth-of-type(3) {
+                    float: left;
+                    width: 100%;
+                    font-size: 2em;
+                }
+                &:nth-of-type(4) {
+                    float: left;
+                    width: 100%;
+                    span {
+                        border: 1px solid $primary;
+                        border-radius: 3px;
+                        padding: 2px;
+                        margin-right: 5px;
+                    }
+                }
+            }
+        }
+    }
+    
+
+}
+
 .goTop {
     color: #ffffff;
     background-color: $primary;
@@ -295,6 +374,6 @@ footer {
     right: 5%;
     bottom: 5%;
     &:hover {
-        background-color: darken($primary, 15%)
+        background-color: darken($primary, 15%);
     }
 }

@@ -30,21 +30,6 @@
                 </div>
             </div>
             <div class="container">
-                <!-- <ul class="row musicalWork align-items-start">
-                    <li
-                        class="col-lg-4 col-md-6 col-xs-12"
-                        v-for="(item, index) in filterMusicalData"
-                        :key="index"
-                    >
-                        <div :style="{backgroundImage: `url(${item.gsx$圖片.$t})`}">
-                            <h1>{{ item.gsx$專輯名稱.$t }}</h1>
-                            <p class="h6">{{ item.gsx$發行日期.$t }}</p>
-                            <a href="#">曲目 <i class="fas fa-play-circle"></i></a>
-                            <div v-if="item.gsx$曲目">{{ item.gsx$曲目.$t }}</div>
-                        </div>
-                    </li>
-                </ul> -->
-
                 <ul class="row musicalWork align-items-start" >
                     <li
                         class="containerWarp col-xl-4 col-lg-6 col-md-6 col-xs-12"
@@ -131,7 +116,6 @@ export default {
             }
             return this.musical;
         },
-
     }
 }
 </script>

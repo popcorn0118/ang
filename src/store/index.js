@@ -3,6 +3,7 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 
 import musicalWorkModules from './musicalWork';
+import dramaWorkModules from './dramaWork';
 
 Vue.use(Vuex);
 
@@ -16,5 +17,6 @@ export default new Vuex.Store({
     strict: true, // 嚴謹模式
     modules: {
         musicalWorkModules,
+        dramaWorkModules,
       },
 });
