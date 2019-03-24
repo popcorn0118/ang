@@ -11,6 +11,11 @@ import 'bootstrap';
 import App from './App';
 import router from './router';
 import store from './store';
+import jQuery from 'jquery'
+window.jQuery = jQuery
+window.$ = jQuery
+// import jvectormap from '../static/jquery-jvectormap-1.2.2.min.js';
+// import jvectormapWord from '../static/jquery-jvectormap-world-mill.js';
 
 Vue.config.productionTip = false;
 Vue.use(VueAxios, axios);
@@ -23,6 +28,9 @@ new Vue({
   el: '#app',
   router,
   store,
+  jQuery,
+  // jvectormap,
+  // jvectormapWord,
   components: { App },
   template: '<App/>',
 });

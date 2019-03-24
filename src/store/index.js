@@ -4,6 +4,7 @@ import Vuex from 'vuex';
 
 import musicalWorkModules from './musicalWork';
 import dramaWorkModules from './dramaWork';
+import concertModules from './concert';
 
 Vue.use(Vuex);
 
@@ -18,5 +19,6 @@ export default new Vuex.Store({
     modules: {
         musicalWorkModules,
         dramaWorkModules,
+        concertModules
       },
 });
