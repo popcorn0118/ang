@@ -56,9 +56,9 @@ svg {
 }
 
 circle {
-    r:10;
+    r:8;
     stroke: rgba(116, 116, 116, 0.15) !important;
-    stroke-width: 10
+    stroke-width: 5;
 }
 circle:hover {
     r:15;

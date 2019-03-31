@@ -2,16 +2,18 @@
     <div>
         <div class="container">
             <div class="row category">
-                <div class="btn-group btn-group-toggle col-lg-9" data-toggle="buttons" >
-                    <label class="btn btn-outline-primary" @click.prevent="searchText = ''"
-                        :class="{ 'active': searchText === ''}">
-                        <input type="radio" name="options" id="option1" autocomplete="off">ALL
-                    </label>
-                    <label class="btn btn-outline-primary" @click.prevent="searchText = item"
-                        :class="{ 'active': item === searchText}"
-                        v-for="(item, index) in categories" :key="index">
-                        <input type="radio" name="options" id="option2" autocomplete="off" >{{ item }}
-                    </label>
+                <div class="col-lg-9">
+                    <div class="btn-group btn-group-toggle" data-toggle="buttons" >
+                        <label class="btn btn-outline-primary" @click.prevent="searchText = ''"
+                            :class="{ 'active': searchText === ''}">
+                            <input type="radio" name="options" id="option1" autocomplete="off">ALL
+                        </label>
+                        <label class="btn btn-outline-primary" @click.prevent="searchText = item"
+                            :class="{ 'active': item === searchText}"
+                            v-for="(item, index) in categories" :key="index">
+                            <input type="radio" name="options" id="option2" autocomplete="off">{{ item }}
+                        </label>
+                    </div>
                 </div>
                 <div class="col-lg-3">
                     <!-- Search bar -->
@@ -28,7 +30,7 @@
                         </div>
                     </form>
                 </div>
-            </div>
+		    </div>
             <div class="container">
                 <ul class="row musicalWork align-items-start" >
                     <li

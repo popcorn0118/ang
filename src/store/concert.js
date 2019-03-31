@@ -6,7 +6,8 @@ export default {
     state: {
         concert: [],
         categories: [],
-        concertArr: []
+        concertArr: [],
+        markColor: []
     },
     actions: { //操作行為
         // payload(這裡的 status) 載荷
@@ -16,7 +17,8 @@ export default {
             axios.get(url).then((response) => {
                 context.commit('CONCERT', response.data.feed.entry);
                 context.commit('CATEGORIES', response.data.feed.entry);  
-                context.commit('CONCERTARR', response.data.feed.entry);  
+                context.commit('CONCERTARR', response.data.feed.entry);
+                context.commit('MARK_COLOR', response.data.feed.entry);  
                 console.log(this.concert, response);
             })
         },
@@ -32,6 +34,14 @@ export default {
             state.concert = payload;
             console.log(payload)
         },
+        // CATEGORIES(state, payload) {
+        //     const categories = new Set();
+        //     payload.forEach((item) => {
+        //         console.log('演唱會名稱', item.gsx$演唱會名稱.$t)
+        //         categories.add(item.gsx$演唱會名稱.$t);
+        //     });
+        //     state.categories = Array.from(categories);
+        // },
         CATEGORIES(state, payload) {
             const categories = new Set();
             payload.forEach((item) => {
@@ -46,18 +56,26 @@ export default {
                 concertArr.add(
                     {
                         latLng: [parseFloat(item.gsx$經度.$t), parseFloat(item.gsx$緯度.$t)],
-                        name: item.gsx$演出城市.$t,
-                        style: { fill: item.gsx$顏色.$t.toString()}
-                        
+                        name: `${item.gsx$演出日期.$t} - ${item.gsx$演出城市.$t}，${item.gsx$人數.$t}`,
+                        style: { fill: item.gsx$顏色.$t.toString()},
+                        concert: item.gsx$演唱會名稱.$t
                     }
                 );
             });
             state.concertArr = Array.from(concertArr);
-        }
+        },
+        MARK_COLOR(state, payload) {
+            const markColor = new Set();
+            payload.forEach((item) => {
+                markColor.add({color: item.gsx$顏色.$t, categories: item.gsx$演唱會名稱.$t});
+            });
+            state.markColor = Array.from(markColor);
+        },
     },
     getters: {
         concert: state => state.concert,
         categories: state => state.categories,
         concertArr: state => state.concertArr,
+        markColor: state => state.markColor,
     }
 };

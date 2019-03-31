@@ -1,5 +1,4 @@
 <template>
-<div>
     <footer>
         <go-top :duration="2000">
             <div class="goTop"><i class="fas fa-angle-up"></i></div>
@@ -9,7 +8,6 @@
             <p class="float-right text-white-50">本網站僅供涵迷交流 無商業用途 如有侵權來信告知 popcorn0118@gmail.com</p>
         </div>
     </footer>
-</div>  
 </template>
 
 <script>

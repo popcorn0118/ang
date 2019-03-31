@@ -11,4 +11,7 @@ export default {
 </script>
 <style lang="scss">
 @import './assets/css/all';
+img[alt="www.000webhost.com"] {
+    display: none;
+}
 </style>
