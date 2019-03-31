@@ -476,6 +476,9 @@ body,html {
                     line-height: 1em;
                     margin: 5px 0;
                     display: inline-block;
+                    @include xs {
+                        margin: 0 -14px 5px -16px;
+                    }
                 }
                 .concer-item--name {
                     display: inline-block;
