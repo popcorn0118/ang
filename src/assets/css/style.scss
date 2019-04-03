@@ -90,7 +90,7 @@ body,html {
     }
     .search {
         width: 100%;
-        @include  md {
+        @include md {
             margin-top: 20px;
         }
         input {
@@ -231,20 +231,23 @@ body,html {
                     margin: 0 5px;
                     display: inline-block;
                     background-image: url('/../../../static/img/tarckIcon.png');
-                    &:first-of-type {
+                    &.tarckIcon--itunes {
                         background-position-x: 0;
                     }
-                    &:nth-of-type(2) {
+                    &.tarckIcon--spotify {
                         background-position-x: -30px;
                     }
-                    &:nth-of-type(3) {
+                    &.tarckIcon--kkbox {
                         background-position-x: calc(-30px * 2);
                     }
-                    &:nth-of-type(4) {
+                    &.tarckIcon--omusic {
                         background-position-x: calc(-30px * 3);
                     }
-                    &:last-of-type {
+                    &.tarckIcon--mymusic {
                         background-position-x: calc(-30px * 4);
+                    }
+                    &.tarckIcon--youtube {
+                        background-position-x: calc(-30px * 5);
                     }
                     a {
                         display: block;
@@ -254,7 +257,7 @@ body,html {
                 }
             }
         }
-        &:hover {
+        &:hover, &.is_hover {
             .front {
                 &::after {
                     background-color: rgba(0, 0, 0, 0.9);
@@ -399,7 +402,7 @@ body,html {
     &::before {
         @include backgroundImg;
         content: '';
-        background-image: url('/../../../static/img/map.png');
+        background-image: url('https://upload.cc/i1/2019/04/04/djzfFR.png');
         position: absolute;
         opacity: 0.04;
         background-repeat-y: repeat;
@@ -534,5 +537,8 @@ footer {
     width: 100%;
     p {
         margin: 20px auto;
+        @include md {
+            margin: 10px auto;
+        }
     }
 }

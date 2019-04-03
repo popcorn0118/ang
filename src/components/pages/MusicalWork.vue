@@ -36,7 +36,9 @@
                     <li
                         class="containerWarp col-xl-4 col-lg-6 col-md-6 col-xs-12"
                         v-for="(item, index) in filterMusicalData"
-                        :class="{ 'is_active': index === isActive }"
+                        :class="[
+                        {'is_active': index === isActive},
+                        {'is_hover': item.gsx$分類.$t === '唱別人的歌'}]"
                         :key="index"
                     >
                         <div class="front" :style="{backgroundImage: `url(${item.gsx$圖片.$t})`}">
@@ -58,20 +60,23 @@
                                     </li>
                                 </ol>
                                 <ul class="tarckIcon">
-                                    <li v-if="item.gsx$連結1.$t !== ''">
-                                        <a :href="item.gsx$連結1.$t" target="_new"></a>
+                                    <li class="tarckIcon--itunes" v-if="item.gsx$itunes連結.$t !== ''">
+                                        <a :href="item.gsx$itunes連結.$t" target="_new"></a>
                                     </li>
-                                    <li v-if="item.gsx$連結2.$t !== ''">
-                                        <a :href="item.gsx$連結2.$t" target="_new"></a>
+                                    <li class="tarckIcon--spotify" v-if="item.gsx$spotify連結.$t !== ''">
+                                        <a :href="item.gsx$spotify連結.$t" target="_new"></a>
                                     </li>
-                                    <li v-if="item.gsx$連結3.$t !== ''">
-                                        <a :href="item.gsx$連結3.$t" target="_new"></a>
+                                    <li class="tarckIcon--kkbox" v-if="item.gsx$kkbox連結.$t !== ''">
+                                        <a :href="item.gsx$kkbox連結.$t" target="_new"></a>
                                     </li>
-                                    <li v-if="item.gsx$連結4.$t !== ''">
-                                        <a :href="item.gsx$連結4.$t" target="_new"></a>
+                                    <li class="tarckIcon--omusic" v-if="item.gsx$omusic連結.$t !== ''">
+                                        <a :href="item.gsx$omusic連結.$t" target="_new"></a>
                                     </li>
-                                    <li v-if="item.gsx$連結5.$t !== ''">
-                                        <a :href="item.gsx$連結5.$t" target="_new"></a>
+                                    <li class="tarckIcon--mymusic" v-if="item.gsx$mymusic連結.$t !== ''">
+                                        <a :href="item.gsx$mymusic連結.$t" target="_new"></a>
+                                    </li>
+                                    <li class="tarckIcon--youtube" v-if="item.gsx$youtube連結.$t !== ''">
+                                        <a :href="item.gsx$youtube連結.$t" target="_new"></a>
                                     </li>
                                 </ul>
                             </div>
