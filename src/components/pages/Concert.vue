@@ -2,8 +2,24 @@
 <div>
     <div class="container">
 		<div class="row category">
-			<div class="col-lg-9">
-				<div class="btn-group btn-group-toggle" data-toggle="buttons" >
+			<div class="col-xl-9 col-lg-12 col-md-12">
+				<div 
+					v-if="searchText === ''" 
+					class="categoryBtn"
+					:class="{is_active: is_menu}" 
+					@click.prevent="categoryToggle">
+					ALL
+					<i class="fas fa-chevron-up"></i>
+				</div>
+				<div 
+					v-else 
+					class="categoryBtn" 
+					:class="{is_active: is_menu}" 
+					@click.prevent="categoryToggle">
+					{{ searchText }}
+					<i class="fas fa-chevron-up"></i>
+				</div>
+				<div class="btn-group btn-group-toggle" :class="{is_active: is_menu}" data-toggle="buttons"  @click.prevent="categoryUp">
 					<label class="btn btn-outline-primary" @click.prevent="searchText = ''"
 						:class="{ 'active': searchText === ''}">
 						<input type="radio" name="options" id="option1" autocomplete="off">ALL
@@ -15,7 +31,7 @@
 					</label>
 				</div>
 			</div>
-			<div class="col-lg-3">
+			<div class="col-xl-3 col-lg-12 col-md-12">
 				<!-- Search bar -->
 				<form class="float-right search">
 					<div class="input-group">
@@ -131,6 +147,7 @@ export default {
 			searchText: '',
 			isActive: false,
 			// concertArrData: [],
+			is_menu: false
         }
 	},
 	created() {
@@ -153,8 +170,12 @@ export default {
             console.log(index)
             this.isActive = index
 		},
-        
-		
+        categoryToggle() {
+            !this.is_menu ? this.is_menu = true : this.is_menu = false
+        },
+        categoryUp() {
+            this.is_menu = false;
+        }
 	},
 	computed: {
 		...mapGetters('concertModules', ['concert', 'categories', 'concertArr', 'markColor']),

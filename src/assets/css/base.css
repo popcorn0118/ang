@@ -410,6 +410,7 @@ a.demo--current {
 .slide__link:hover {
 	color: var(--color-slink-hover);
 	background: var(--color-slink-hover-bg);
+	text-decoration: none;
 }
 
 @media screen and (min-width: 55em) {

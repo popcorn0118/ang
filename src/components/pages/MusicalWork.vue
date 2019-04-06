@@ -2,8 +2,24 @@
     <div>
         <div class="container">
             <div class="row category">
-                <div class="col-lg-9">
-                    <div class="btn-group btn-group-toggle" data-toggle="buttons" >
+                <div class="col-xl-9 col-lg-12 col-md-12">
+                    <div 
+                        v-if="searchText === ''" 
+                        class="categoryBtn"
+                        :class="{is_active: is_menu}" 
+                        @click.prevent="categoryToggle">
+                        ALL
+                        <i class="fas fa-chevron-up"></i>
+                    </div>
+                    <div 
+                        v-else 
+                        class="categoryBtn" 
+                        :class="{is_active: is_menu}" 
+                        @click.prevent="categoryToggle">
+                        {{ searchText }}
+                        <i class="fas fa-chevron-up"></i>
+                    </div>
+                    <div class="btn-group btn-group-toggle" :class="{is_active: is_menu}"  data-toggle="buttons" @click.prevent="categoryUp">
                         <label class="btn btn-outline-primary" @click.prevent="searchText = ''"
                             :class="{ 'active': searchText === ''}">
                             <input type="radio" name="options" id="option1" autocomplete="off">ALL
@@ -15,8 +31,7 @@
                         </label>
                     </div>
                 </div>
-                <div class="col-lg-3">
-                    <!-- Search bar -->
+                <div class="col-xl-3 col-lg-12 col-md-12">
                     <form class="float-right search">
                         <div class="input-group">
                             <input class="form-control" type="text" v-model="searchText"
@@ -31,6 +46,7 @@
                     </form>
                 </div>
 		    </div>
+            <!-- <Category/> -->
             <div class="container">
                 <ul class="row musicalWork align-items-start" >
                     <li
@@ -90,12 +106,14 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex';
+// import Category from 'Category';
 export default {
     name: 'MusicalWork',
     data () {
         return {
             searchText: '',
-            isActive: false
+            isActive: false,
+            is_menu: false
         }
     },
     created() {
@@ -107,10 +125,16 @@ export default {
             console.log(index)
             this.isActive = index
         },
+        categoryToggle() {
+            !this.is_menu ? this.is_menu = true : this.is_menu = false
+        },
+        categoryUp() {
+            this.is_menu = false;
+        }
         
     },
     computed: {
-        ...mapGetters('musicalWorkModules', ['musical', 'categories', 'track']),
+        ...mapGetters('musicalWorkModules', ['musical', 'categories']),
         filterMusicalData() {
             const vm = this;
             if (vm.searchText) {
@@ -123,6 +147,9 @@ export default {
             }
             return this.musical;
         },
+    },
+    components: {
+        // Category
     }
 }
 </script>
