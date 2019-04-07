@@ -1,5 +1,7 @@
 'use strict'
 const path = require('path')
+const PrerenderSPAPlugin = require('prerender-spa-plugin')   //SEO預渲染插件
+const Renderer = PrerenderSPAPlugin.PuppeteerRenderer
 const utils = require('./utils')
 const webpack = require('webpack')
 const config = require('../config')
@@ -77,6 +79,24 @@ const webpackConfig = merge(baseWebpackConfig, {
       },
       // necessary to consistently work with multiple chunks via CommonsChunkPlugin
       chunksSortMode: 'dependency'
+    }),
+    // 配置PrerenderSPAPlugin
+    new PrerenderSPAPlugin({
+        // 生成文件的路径，也可以与webpakc打包的一致。
+        staticDir: path.join(__dirname, '../dist'),
+        
+        // 对应自己的路由文件，比如index有参数，就需要写成 /index/param1。
+        routes: ['/', '/musicalWork','/concert','/dramaWork'],
+      
+        // 这个很重要，如果没有配置这段，也不会进行预编译
+        renderer: new Renderer({
+            inject: {
+              foo: 'bar'
+            },
+            headless: false,
+            // 在 main.js 中 document.dispatchEvent(new Event('render-event'))，两者的事件名称要对应上。
+            renderAfterDocumentEvent: 'render-event'
+        })
     }),
     // keep module.id stable when vendor modules does not change
     new webpack.HashedModuleIdsPlugin(),

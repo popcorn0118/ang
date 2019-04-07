@@ -8,6 +8,7 @@ import DramaWork from '@C/pages/DramaWork'
 Vue.use(Router)
 
 export default new Router({
+  mode: 'history',
   routes: [
     {
       path: '*', //若未設定 path
