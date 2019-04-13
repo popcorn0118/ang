@@ -17,7 +17,7 @@ export default new Router({
     {
       // 默認路由
       path: '/', 
-      redirect: 'musicalWork'
+      redirect: 'concert'
     },
     {
       path: '/',
@@ -25,14 +25,14 @@ export default new Router({
       component: Home,
       children: [
         {
-          path: 'musicalWork',
-          name: 'MusicalWork',
-          component: MusicalWork,
-        },
-        {
           path: 'concert',
           name: 'Concert',
           component: Concert,
+        },
+        {
+          path: 'musicalWork',
+          name: 'MusicalWork',
+          component: MusicalWork,
         },
         {
           path: 'dramaWork',

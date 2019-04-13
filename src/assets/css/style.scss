@@ -109,6 +109,7 @@ body,html {
         }
     }
 }
+
 .navBar {
     ul {
         background-color: #171717;
@@ -175,6 +176,67 @@ body,html {
             padding: 0px;
             li {
                 border-bottom: 1px solid #262626;
+            }
+        }
+    }
+}
+//社群
+$iconWidth: 50px;
+.community {
+    position: absolute;
+    z-index: 1;
+    right: 30px;
+    top: 10px;
+    .community_icon {
+        float: right;
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            top: 0px;
+            background-color: transparent;
+            box-shadow: none;
+            li {
+                display: inline-block;
+                width: 50px;
+                height: 50px;
+                font-size: 0;
+                border: 0px;
+                &.community--weibo a {background-position: left top;}
+                &.community--littleRedBook a {background-position: -$iconWidth top}
+                &.community--facebook a {background-position: -$iconWidth * 2 top}
+                &.community--instagram a {background-position: -$iconWidth * 3 top}
+                &.community--youtube a {background-position: -$iconWidth * 4 top}
+                a {
+                    display: block;
+                    height: 100%;
+                    background: url('/../../../static/img/communityIcon.svg') no-repeat;
+                    background-size: auto 100px;
+                    opacity: 0.4;
+                    transition: 0.4s;
+                    &:hover {
+                        opacity: 1; 
+                        background-position-y: bottom;
+                    }
+                }
+                
+            }
+        }
+    }
+    @include md {
+        position: relative;
+        text-align: center;
+        float: left;
+        width: 100%;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        .community_icon {
+            float: none;
+            display: inline-block;
+            ul {
+                top: 0;
             }
         }
     }

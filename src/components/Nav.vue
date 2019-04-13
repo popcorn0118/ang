@@ -5,17 +5,17 @@
         <div class="slideshow">
             <div class="slides" ref="slides">
                 <div class="slide slide--current">
+                    <div class="slide__img" style="background-image: url('../../../static/img/1.jpg')"></div>
+                    <h2 class="slide__title">Concert</h2>
+                    <p class="slide__desc">2018~2019 旅程世界巡迴演唱會</p>
+                    <router-link to="concert" class="slide__link">More</router-link>
+                </div>
+                <div class="slide">
                     <div class="slide__img" :style="{ backgroundImage: `url(${img})`}"></div>
                     <h2 class="slide__title text-primary">Angela</h2>
                     <p class="slide__desc">Angela Chang 張韶涵</p>
                     <a class="btn btn-primary " href="#" role="button">Link</a>
-                    <a class="slide__link" href="#">Explore destinations</a>
-                </div>
-                <div class="slide">
-                    <div class="slide__img" style="background-image: url('../../../static/img/1.jpg')"></div>
-                    <h2 class="slide__title">Concert</h2>
-                    <p class="slide__desc">2018~2019 旅程世界巡迴演唱會</p>
-                    <a class="slide__link" href="#">More</a>
+                    <a class="slide__link" href="#" style="display:none">Explore destinations</a>
                 </div>
             </div>
             <nav class="slidenav">
@@ -50,6 +50,7 @@
                 </router-link>
             </li>
         </ul>
+        <Community />
     </div>
 </div>  
 </template>
@@ -60,6 +61,7 @@
 // }
 </style>
 <script>
+import Community from '@C/Community';
 // import $ from 'jquery'
 // import '../../static/js/anime.min.js'
 // import '../../static/js/demo2.js'
@@ -266,6 +268,9 @@ export default {
             new Slideshow(document.querySelector('.slideshow'));
             // imagesLoaded('.slide__img', { background: true }, () => document.body.classList.remove('loading'));
         };
+    },
+    components: {
+        Community
     }
 }
 </script>
