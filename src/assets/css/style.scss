@@ -237,6 +237,9 @@ $iconWidth: 50px;
             display: inline-block;
             ul {
                 top: 0;
+                li {
+                    a{opacity: 0.1;}
+                }
             }
         }
     }
