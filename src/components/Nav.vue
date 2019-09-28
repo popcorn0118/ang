@@ -55,7 +55,7 @@
 </div>  
 </template>
 <style lang="scss">
-@import '../assets/css/base.css';
+// @import '../assets/css/base.css';
 // .slide__img {
 //     background-image: url('../assets/img/2.jpg')
 // }
