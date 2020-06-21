@@ -57,7 +57,7 @@
                         {'is_hover': item.gsx$分類.$t === '唱別人的歌'}]"
                         :key="index"
                     >
-                        <div class="front" :style="{backgroundImage: `url(${item.gsx$圖片.$t})`}">
+                        <div class="front" :style="{backgroundImage: `url(./static/img/musical/${item.gsx$圖片.$t})`}">
                             <div class="inner">
                                 <h1>{{ item.gsx$專輯名稱.$t }}</h1>
                                 <p class="h6">{{ item.gsx$發行日期.$t }}</p>
@@ -122,7 +122,7 @@ export default {
     methods: {
         ...mapActions('musicalWorkModules', ['getMusical']),
         isActiveClick(index) {
-            console.log(index)
+            // console.log(index)
             this.isActive = index
         },
         categoryToggle() {

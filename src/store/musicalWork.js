@@ -15,7 +15,7 @@ export default {
             axios.get(url).then((response) => {
                 context.commit('MUSICAL', response.data.feed.entry);
                 context.commit('CATEGORIES', response.data.feed.entry);  
-                console.log(this.musical);
+                // console.log(this.musical);
             })
         },
     },
@@ -28,12 +28,12 @@ export default {
             })
             // payload.reverse()
             state.musical = payload;
-            console.log(payload)
+            // console.log(payload)
         },
         CATEGORIES(state, payload) {
             const categories = new Set();
             payload.forEach((item) => {
-                console.log('分類', item.gsx$分類.$t)
+                // console.log('分類', item.gsx$分類.$t)
                 categories.add(item.gsx$分類.$t);
             });
             state.categories = Array.from(categories);

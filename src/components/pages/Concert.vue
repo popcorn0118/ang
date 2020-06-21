@@ -167,7 +167,7 @@ export default {
     methods: {
 		...mapActions('concertModules', ['getConcert']),
 		isActiveClick(index) {
-            console.log(index)
+            // console.log(index)
             this.isActive = index
 		},
         categoryToggle() {
@@ -186,7 +186,7 @@ export default {
                     const data = item.gsx$演唱會名稱.$t.includes(vm.searchText) ||
                                 item.gsx$演出城市.$t.includes(vm.searchText)
 					return data;
-					console.log(data)
+					// console.log(data)
                 });
             }
 			return this.concert;
@@ -197,7 +197,7 @@ export default {
                     return vm.concertArr.filter((item) => {
                     const data = item.concert.includes(vm.searchText)
 					return data;
-					console.log(data)
+					// console.log(data)
                 });
             }
 			return this.concertArr

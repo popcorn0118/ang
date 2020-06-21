@@ -90,7 +90,7 @@ export default {
     methods: {
         ...mapActions('dramaWorkModules', ['getDrama']),
         isActiveClick(index) {
-            console.log(index)
+            // console.log(index)
             this.isActive = index
         },
         categoryToggle() {

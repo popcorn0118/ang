@@ -19,7 +19,7 @@ export default {
                 context.commit('CATEGORIES', response.data.feed.entry);  
                 context.commit('CONCERTARR', response.data.feed.entry);
                 context.commit('MARK_COLOR', response.data.feed.entry);  
-                console.log(this.concert, response);
+                // console.log(this.concert, response);
             })
         },
     },
@@ -32,7 +32,7 @@ export default {
             })
             // // payload.reverse()
             state.concert = payload;
-            console.log(payload)
+            // console.log(payload)
         },
         // CATEGORIES(state, payload) {
         //     const categories = new Set();
@@ -45,7 +45,7 @@ export default {
         CATEGORIES(state, payload) {
             const categories = new Set();
             payload.forEach((item) => {
-                console.log('演唱會名稱', item.gsx$演唱會名稱.$t)
+                // console.log('演唱會名稱', item.gsx$演唱會名稱.$t)
                 categories.add(item.gsx$演唱會名稱.$t);
             });
             state.categories = Array.from(categories);
