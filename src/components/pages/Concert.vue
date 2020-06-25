@@ -124,7 +124,7 @@
 </div>  
 </template>
 <style lang="scss">
-@import '../../assets/css/jquery-jvectormap-1.2.2.css';
+@import '~@CSS/jquery-jvectormap-1.2.2.css';
 </style>
 
 <script>

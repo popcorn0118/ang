@@ -58,7 +58,7 @@
                             <div class="dramaWork--img">
                                 <div>
                                     <div class="dramaWork--img--left">{{ item.gsx$劇名.$t }}</div>
-                                    <div class="dramaWork--img--front" :style="{backgroundImage: `url(${item.gsx$圖片.$t})`}"></div>
+                                    <div class="dramaWork--img--front" :style="{backgroundImage: `url(../static/img/drama/${item.gsx$圖片.$t})`}"></div>
                                 </div>
                             </div>
                             <ul>

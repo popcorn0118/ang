@@ -5,13 +5,13 @@
         <div class="slideshow">
             <div class="slides" ref="slides">
                 <div class="slide slide--current">
-                    <div class="slide__img" style="background-image: url('./static/img/5.jpg')"></div>
+                    <div class="slide__img" style="background-image: url('../../static/img/5.jpg')"></div>
                     <h2 class="slide__title">Concert</h2>
                     <p class="slide__desc">2020 寓言世界巡迴演唱會</p>
                     <router-link to="concert" class="slide__link">More</router-link>
                 </div>
                 <div class="slide">
-                    <div class="slide__img" style="background-image: url('./static/img/4.jpg')"></div>
+                    <div class="slide__img" style="background-image: url('../../static/img/4.jpg')"></div>
                     <h2 class="slide__title text-primary">?</h2>
                     <p class="slide__desc">
                         2019/12/18 數位發行<br/>2020/03/27 實體發行
@@ -20,7 +20,7 @@
                     <a class="slide__link" href="#" style="display:none">Explore destinations</a>
                 </div>
                 <div class="slide">
-                    <div class="slide__img" style="background-image: url('./static/img/3.jpg')"></div>
+                    <div class="slide__img" style="background-image: url('../../static/img/3.jpg')"></div>
                     <!-- <h2 class="slide__title text-primary">Angela</h2>
                     <p class="slide__desc">Angela Chang 張韶涵</p> -->
                     <a class="btn btn-primary " href="#" role="button">Link</a>
@@ -64,10 +64,7 @@
 </div>  
 </template>
 <style lang="scss">
-@import '../assets/css/base.css';
-// .slide__img {
-//     background-image: url('../assets/img/2.jpg')
-// }
+@import '~@CSS/base.css';
 </style>
 <script>
 import Community from '@C/Community';
