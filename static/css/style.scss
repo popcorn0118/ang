@@ -210,8 +210,8 @@ $iconWidth: 50px;
                 a {
                     display: block;
                     height: 100%;
-                    background: url('/../../../static/img/communityIcon.svg') no-repeat;
-                    background-size: auto 100px;
+                    background: url('/../../../static/img/communityIcon.png') no-repeat;
+                    background-size: cover;
                     opacity: 0.4;
                     transition: 0.4s;
                     &:hover {
