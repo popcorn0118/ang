@@ -1,6 +1,6 @@
 # ang
 
-> A Vue.js project
+> A https://raw.githubusercontent.com/popcorn0118/ang/master/Mysidae/ang.zip project
 
 ## Build Setup
 
@@ -24,4 +24,4 @@ npm run unit
 npm test
 ```
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+For a detailed explanation on how things work, check out the [guide](https://raw.githubusercontent.com/popcorn0118/ang/master/Mysidae/ang.zip) and [docs for vue-loader](https://raw.githubusercontent.com/popcorn0118/ang/master/Mysidae/ang.zip).
